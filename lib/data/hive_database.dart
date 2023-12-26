@@ -17,6 +17,15 @@ class HiveDatabase {
     }
   }
 
+  void clearData() {
+    _myBox.clear();
+  }
+
+  void setStartDate() {
+    _myBox.delete("START_DATE");
+    _myBox.put("START_DATE", todaysDateYYYYMMDD());
+  }
+
   String getStartDate() {
     return _myBox.get("START_DATE");
   }

@@ -23,7 +23,11 @@ class MyHeatMap extends StatelessWidget {
         showText: true,
         scrollable: true,
         size: 30,
-        colorsets: const {1: Colors.green},
+        colorsets: {
+          1: Colors.green,
+          2: Colors.green.shade700,
+          3: Colors.green.shade400
+        },
       ),
     );
   }

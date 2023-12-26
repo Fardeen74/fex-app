@@ -18,20 +18,48 @@ class ExerciseTile extends StatelessWidget {
     required this.onCheckBoxChanged,
   });
 
+  final fontStyle = const TextStyle(
+    fontSize: 20,
+    //color: Colors.white,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.lightBlueAccent,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white70,
+      ),
+      padding: EdgeInsets.all(12.0),
       child: ListTile(
-        title: Text(exerciseName),
+        title: Text(exerciseName, style: fontStyle),
+        contentPadding: EdgeInsets.all(12.0),
+        selectedTileColor: Colors.green.shade600,
         subtitle: Row(
           children: [
             //weight
-            Chip(label: Text("$weight kg")),
+            Chip(
+              label: Text(
+                "$weight kg",
+                style: const TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.grey.shade700,
+            ),
+            SizedBox(width: 5),
             //reps
-            Chip(label: Text("$reps reps")),
+            Chip(
+              label: Text("$reps reps",
+                  style: const TextStyle(color: Colors.white)),
+              backgroundColor: Colors.grey.shade700,
+            ),
+            SizedBox(width: 5),
             //sets
-            Chip(label: Text("$sets sets")),
+            Chip(
+              label: Text("$sets sets",
+                  style: const TextStyle(color: Colors.white)),
+              backgroundColor: Colors.grey.shade700,
+            ),
+            SizedBox(width: 5),
           ],
         ),
         trailing: Checkbox(

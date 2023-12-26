@@ -11,14 +11,14 @@ class WorkoutData extends ChangeNotifier {
   List<Workout> workoutList = [
     //defualt workout
     Workout(
-      name: "Upper body",
+      name: "UPPER BODY",
       exercises: [
         Exercise(name: "Bicep curls", weight: "10", reps: "10", sets: "3"),
       ],
     ),
 
     Workout(
-      name: "Lower body",
+      name: "LOWER BODY",
       exercises: [
         Exercise(name: "Squats", weight: "10", reps: "10", sets: "3"),
       ],
@@ -43,6 +43,16 @@ class WorkoutData extends ChangeNotifier {
 
     //load the heatmap
     loadHeatMap();
+  }
+
+  //delete
+  void deleteWorkout(String workoutName) {
+    //workoutList = db.readFromDatabase();
+    //Workout wd = workoutList.firstWhere((w) => w.name == workoutName);
+
+    workoutList.removeWhere((w) => w.name == workoutName);
+    db.saveToDatabase(workoutList);
+    notifyListeners();
   }
 
   //get list of workouts
